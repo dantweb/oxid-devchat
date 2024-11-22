@@ -1,0 +1,46 @@
+{
+    "name": "dantweb/devchat",
+    "description": "An OXID 7 extension to enable AI-powered chat using OpenAI SDK.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "your-email@example.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "openai-php/client": "^v0.10.3",
+        "symfony/console": "^5.4 || ^6.0",
+        "symfony/http-client": "^6.4",
+        "nyholm/psr7": "^1.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "oxid-esales/oxideshop-unified-namespace-generator": true,
+            "oxid-esales/oxideshop-composer-plugin": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Dantweb\\OxidDevChat\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dantweb\\OxidDevChat\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

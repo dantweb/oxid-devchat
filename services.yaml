@@ -1,0 +1,19 @@
+# services.yaml
+services:
+
+  _defaults:
+    public: false
+    autowire: true
+  # Register the AI Chat Command
+  \Dantweb\OxidDevchat\Command\AiDevChatCommand:
+    arguments:
+      $openaiClient: '@openai.client' # Inject the OpenAI Client
+    tags:
+      - { name: console.command, command: 'oe:ai:devchat' }
+
+  # Register the OpenAI Client
+  openai.client:
+    class: OpenAI\Client
+    factory: ['OpenAI\Client', 'factory']
+    arguments:
+      - '%env(OPENAI_API_KEY)%' # Use your OpenAI API key from environment
